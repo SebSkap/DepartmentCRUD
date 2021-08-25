@@ -1,0 +1,35 @@
+<table>
+  <thead>
+      <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Actions</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let department of departmentList">
+          <td>{{department.id}}</td>
+          <td>{{department.name}}</td>
+          <td>
+              <button (click)="displayAdd()">Add</button>
+              <button (click)="prepareUpdateDepartment(department.id)">Edit</button>
+              <button (click)="deleteDepartment(department.id)">Delete</button>
+          </td>
+      </tr>
+  </tbody>
+</table>
+
+<ng-container *ngIf="displayedAdd">
+  <p>New department name: <input type="text" id="newDepartmentName" name="newDepartmentName" [(ngModel)]="newDepartmentName"></p>
+  <!--<h1> {{username}}</h1>-->
+  <button (click)="addDepartment()">Confirm</button>
+  <button (click)="hideAdd()">Cancel</button>
+</ng-container>
+
+<ng-container *ngIf="displayedEdit">
+  <p>Department ID: <input type="text" id="editDepartmentId" name="editDepartmentId" [(ngModel)]="listedDepartment.id" readonly></p>
+  <p>Department Name: <input type="text" id="editDepartmentName" name="editDepartmentName" [(ngModel)]="listedDepartment.name"></p>
+  <!--<h1> {{username}}</h1>-->
+  <button (click)="updateDepartment()">Confirm</button>
+  <button (click)="hideEdit()">Cancel</button>
+</ng-container>
