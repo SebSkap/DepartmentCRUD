@@ -45,6 +45,7 @@ namespace DepartmentAPI.Controllers
                         dep.Id = sqlDataReader.GetInt32("id");
                         dep.Name = sqlDataReader.GetString("name");
 
+
                         departments.Add(dep);
                     }
                 }
