@@ -25,7 +25,7 @@ namespace DepartmentAPI.Controllers
             sqlDataSource = _configuration.GetConnectionString("DepartmentConnectionString");
         }
 
-        // GET: api/<DepartmentController>
+        // GET: api/Department
         [HttpGet]
         public List<Department> Get()
         {
@@ -45,7 +45,6 @@ namespace DepartmentAPI.Controllers
                         dep.Id = sqlDataReader.GetInt32("id");
                         dep.Name = sqlDataReader.GetString("name");
 
-
                         departments.Add(dep);
                     }
                 }
@@ -54,7 +53,7 @@ namespace DepartmentAPI.Controllers
             return departments;
         }
 
-        // GET api/<DepartmentController>/5
+        // GET api/Department/5
         [HttpGet("{id}")]
         public Department Get(int id)
         {
@@ -80,7 +79,7 @@ namespace DepartmentAPI.Controllers
             return dep;
         }
 
-        // POST api/<DepartmentController>
+        // POST api/Department
         [HttpPost]
         public void Post(Department department)
         {
@@ -96,7 +95,7 @@ namespace DepartmentAPI.Controllers
             }
         }
 
-        // PUT api/<DepartmentController>/5
+        // PUT api/Department
         [HttpPut]
         public void Put(Department department)
         {
@@ -112,7 +111,7 @@ namespace DepartmentAPI.Controllers
             }
         }
 
-        // DELETE api/<DepartmentController>/5
+        // DELETE api/Department/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
